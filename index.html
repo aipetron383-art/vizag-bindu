@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Vizag Bindu · Premium Dog Breeds</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf6;
+      color: #2e2a27;
+      line-height: 1.5;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* simple header - only logo and phone */
+    .site-header {
+      background: rgba(255, 250, 245, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(182, 139, 92, 0.25);
+      padding: 0 8px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo-icon {
+      font-size: 2rem;
+      color: #b68b5c;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #3a2e24;
+      line-height: 1.1;
+    }
+    .logo-text span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #b68b5c;
+      text-transform: uppercase;
+    }
+
+    .phone-btn {
+      background: transparent;
+      border: 1.5px solid #b68b5c;
+      color: #b68b5c;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .phone-btn:hover {
+      background: #b68b5c;
+      color: white;
+    }
+
+    /* HERO WITH FULL BACKGROUND IMAGE AND NAV MENU INSIDE */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80') no-repeat center center;
+      background-size: cover;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 30px 20px;
+    }
+
+    /* Navigation inside hero */
+    .hero-nav {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .hero-nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 4px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .hero-nav a:hover {
+      border-bottom-color: #f5d7b3;
+      color: #f5d7b3;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #f5d7b3;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: rgba(0,0,0,0.35);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 18px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #f0e5d8;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .btn-primary {
+      background: #b68b5c;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 15px 36px;
+      border-radius: 40px;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s;
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #9c7346;
+      transform: translateY(-2px);
+    }
+
+    /* breeds section */
+    .breeds-section {
+      padding: 60px 0 50px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .section-title h2 {
+      font-size: 2.4rem;
+      color: #3a2e24;
+      margin-bottom: 6px;
+    }
+    .section-title p {
+      color: #6b5e51;
+      font-size: 1rem;
+    }
+    .breed-count {
+      font-weight: 700;
+      color: #b68b5c;
+      background: #f3ede5;
+      padding: 6px 22px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      letter-spacing: 0.4px;
+    }
+
+    .breed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .breed-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.04);
+      transition: 0.3s ease;
+      border: 1px solid rgba(182, 139, 92, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .breed-card:active {
+      transform: scale(0.98);
+    }
+    .breed-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      background: #f3ede7;
+      display: block;
+    }
+    .breed-info {
+      padding: 16px 10px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .breed-info h3 {
+      font-size: 1.1rem;
+      font-weight: 650;
+      color: #3e3326;
+      margin-bottom: 2px;
+    }
+    .price {
+      font-weight: 700;
+      color: #b68b5c;
+      font-size: 1.1rem;
+      margin: 6px 0 12px;
+    }
+    .whatsapp-adopt {
+      background: #25D366;
+      color: white;
+      border: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 10px 10px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: auto;
+      text-decoration: none;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.3);
+    }
+    .whatsapp-adopt:active {
+      background: #1da851;
+    }
+
+    /* map section */
+    .map-section {
+      padding: 50px 0 60px;
+      background: #faf6f1;
+    }
+    .map-container {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 28px rgba(0,0,0,0.05);
+      border: 1px solid #e1cfba;
+      margin-top: 14px;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      background: #2e241a;
+      color: #d9cdbd;
+      padding: 32px 0 24px;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: #ddc7a9;
+    }
+    .footer-links i {
+      margin: 0 10px;
+      font-size: 1.3rem;
+      color: #b68b5c;
+    }
+
+    /* floating buttons */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 100;
+    }
+    .float-wa, .float-call {
+      background: #25D366;
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .float-call {
+      background: #b68b5c;
+    }
+
+    /* mobile adjustments */
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 85vh;
+      }
+      .hero-nav {
+        gap: 16px;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+      }
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+      .breed-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .breed-img {
+        height: 130px;
+      }
+      .logo-text {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-content h1 {
+        font-size: 3.8rem;
+      }
+      .breed-grid {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Simple header with only logo and call button -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <i class="fas fa-paw logo-icon"></i>
+        <div class="logo-text">
+          Vizag Bindu
+          <span>pet needs · vizag</span>
+        </div>
+      </div>
+      <a href="tel:+919XXXXXXXXX" class="phone-btn"><i class="fas fa-phone-alt"></i> Call</a>
+    </div>
+  </header>
+
+  <!-- Hero section with navigation menu inside -->
+  <section class="hero">
+    <div class="container">
+      <!-- Navigation menu only in hero -->
+      <nav class="hero-nav">
+        <a href="#">Home</a>
+        <a href="#breeds">Breeds</a>
+        <a href="#breeds">Adopt</a>
+        <a href="#map">Contact</a>
+      </nav>
+      
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-star"></i> exclusive 10 breeds</div>
+        <h1>Purebred pups<br>in Vizag</h1>
+        <p>Premium dogs with health guarantee. WhatsApp to adopt · prices in ₹.</p>
+        <a href="#breeds" class="btn-primary"><i class="fas fa-paw"></i> View breeds</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="breeds" class="breeds-section container">
+    <div class="section-title">
+      <h2>10 signature breeds</h2>
+      <p>KCI papers, vaccination & starter kit. Tap WhatsApp.</p>
+    </div>
+    <div style="text-align: center;">
+      <span class="breed-count"><i class="fas fa-bone"></i> starting ₹12,999 <i class="fas fa-bone"></i></span>
+    </div>
+
+    <div class="breed-grid">
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=1" alt="Labrador" class="breed-img">
+        <div class="breed-info">
+          <h3>Labrador</h3>
+          <div class="price">₹15,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Labrador" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=2" alt="Golden Retriever" class="breed-img">
+        <div class="breed-info">
+          <h3>Golden Retriever</h3>
+          <div class="price">₹18,499</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Golden%20Retriever" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=3" alt="German Shepherd" class="breed-img">
+        <div class="breed-info">
+          <h3>German Shepherd</h3>
+          <div class="price">₹22,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20German%20Shepherd" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=4" alt="Beagle" class="breed-img">
+        <div class="breed-info">
+          <h3>Beagle</h3>
+          <div class="price">₹14,499</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Beagle" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=5" alt="Pug" class="breed-img">
+        <div class="breed-info">
+          <h3>Pug</h3>
+          <div class="price">₹16,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Pug" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=6" alt="Rottweiler" class="breed-img">
+        <div class="breed-info">
+          <h3>Rottweiler</h3>
+          <div class="price">₹24,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Rottweiler" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=7" alt="Shih Tzu" class="breed-img">
+        <div class="breed-info">
+          <h3>Shih Tzu</h3>
+          <div class="price">₹19,499</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Shih%20Tzu" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=8" alt="Dachshund" class="breed-img">
+        <div class="breed-info">
+          <h3>Dachshund</h3>
+          <div class="price">₹13,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Dachshund" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=9" alt="Husky" class="breed-img">
+        <div class="breed-info">
+          <h3>Husky</h3>
+          <div class="price">₹35,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Husky" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+      <div class="breed-card">
+        <img src="https://placedog.net/400/300?id=10" alt="Doberman" class="breed-img">
+        <div class="breed-info">
+          <h3>Doberman</h3>
+          <div class="price">₹27,999</div>
+          <a href="https://wa.me/919XXXXXXXXX?text=Hi%20Vizag%20Bindu,%20I%20want%20to%20adopt%20a%20Doberman" target="_blank" class="whatsapp-adopt"><i class="fab fa-whatsapp"></i> Adopt</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="map-section">
+    <div class="container">
+      <div class="section-title" style="margin-bottom: 20px;">
+        <h2>Visit us in Vizag</h2>
+        <p>Waltair Main Road · near Ramakrishna Beach</p>
+      </div>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121820.227944213!2d83.17794864335938!3d17.6868154658225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389e5433b%3A0xfa5c7a7d9b7a0b!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1715800000000" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Vizag Bindu location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-paw"></i> Vizag Bindu
+      </div>
+      <div style="font-weight: 400; font-size: 0.9rem;">
+        <i class="fas fa-map-pin"></i> Vizag, Andhra Pradesh · premium pet needs
+      </div>
+      <div class="footer-links">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="far fa-envelope"></i>
+      </div>
+    </div>
+    <div style="margin-top: 16px; font-size: 0.8rem; color: #ab9a88;">
+      © 2025 Vizag Bindu Pet Needs — 10 exclusive dog breeds.
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a href="https://wa.me/919XXXXXXXXX?text=Hello%20Vizag%20Bindu%2C%20I%20want%20to%20adopt%20a%20puppy" target="_blank" class="float-wa" title="Adopt via WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919XXXXXXXXX" class="float-call" title="Call now">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+  </div>
+</body>
+</html>
